@@ -1,6 +1,6 @@
 {
   "name": "mika-cli-webpack",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "react cli based webpack5",
   "main": "index.js",
   "author": "daryl",
@@ -15,7 +15,6 @@
   "keywords": [
     "mika-cli"
   ],
-  "author": "daryl",
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
