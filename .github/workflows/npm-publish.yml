@@ -10,41 +10,19 @@ on:
     branches:
       - main
 jobs:
-  build:
+   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
+      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm ci
-      - run: npm test
-      
-  publish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-          
-      - name: Set up Git user
-        run: |
-          git config --global user.name "daryl"
-          git config --global user.email "lhtisgood@outlook.com"
-      - name: Bump version (optional)
-        run: npm version patch # 自动更新版本号
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Bump version" || echo "No changes to commit"
-          git push origin main
-          
-      - run: npm publish
+      - run: npm ci
+      - run: npm publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: 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
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
