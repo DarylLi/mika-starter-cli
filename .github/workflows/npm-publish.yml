@@ -27,6 +27,17 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
+      - name: Set up Git user
+        run: |
+          git config --global user.name "daryl"
+          git config --global user.email "lhtisgood@outlook.com"
+      - name: Bump version (optional)
+        run: npm version patch # 自动更新版本号
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Bump version" || echo "No changes to commit"
+          git push origin main
       - run: npm ci
       - run: npm publish
         env:
