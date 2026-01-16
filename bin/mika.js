@@ -51,9 +51,9 @@ const templates = {
     description: 'NestJS TypeScript 后端框架模板'
   },
   'rsbuild': {
-	url: 'https://github.com/sxzz/vue-rsbuild',
-    downloadUrl: 'http://github.com:sxzz/vue-rsbuild#main',
-    description: 'Rsbuild 构建工具模板'
+	  url: 'https://github.com/DarylLi/mika-rsbuild-vue',
+    downloadUrl: 'http://github.com:DarylLi/mika-rsbuild-vue#main',
+    description: 'Rsbuild vue3 构建工具模板'
   },
   'esbuild': {
     url: 'https://github.com/ws18250840411/esbuild-react-demo',
@@ -67,7 +67,7 @@ const templates = {
   }
 };
 
-program.version('1.0.1') // -v 或者 --version 输出版本号
+program.version('1.0.6') // -v 或者 --version 输出版本号
 
 program
   .command('init <template> <project>')
